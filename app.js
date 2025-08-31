@@ -526,7 +526,7 @@ function downloadCV() {
 
     // Set the href to the direct download link of your CV on GitHub
     // IMPORTANT: Replace the URL with the raw link to your own CV PDF on GitHub
-    link.href = 'https://raw.githubusercontent.com/Kugelblitz-26/Kugelblitz-26.github.io/blob/main/Prem_CV.pdf';
+    link.href = 'https://raw.githubusercontent.com/Kugelblitz-26/Kugelblitz-26.github.io/main/Prem_CV.pdf';
 
     // Set the download attribute to suggest a filename for the user
     link.download = 'Prem_CV.pdf';
