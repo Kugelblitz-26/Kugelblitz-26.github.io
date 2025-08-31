@@ -517,58 +517,31 @@ function initMobileNav() {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
         }
-    });
+    }); 
 }
-
 // CV Download functionality
 function downloadCV() {
-    // Simulate CV download
+    // Create an anchor element
     const link = document.createElement('a');
-    link.href = '#'; // In a real implementation, this would be the actual CV file URL
-    link.download = 'Alex_Johnson_Data_Scientist_CV.pdf';
-    
-    // Create a temporary blob for demonstration
-    const cvContent = `
-Alex Johnson - Data Scientist CV
 
-Contact Information:
-Email: alex.johnson@example.com
-Location: Siegen, Germany
-LinkedIn: linkedin.com/in/alexjohnson
-GitHub: github.com/alexjohnson
+    // Set the href to the direct download link of your CV on GitHub
+    // IMPORTANT: Replace the URL with the raw link to your own CV PDF on GitHub
+    link.href = 'https://raw.githubusercontent.com/Kugelblitz-26/Kugelblitz-26.github.io/blob/main/Prem_CV.pdf';
 
-Professional Summary:
-Passionate Data Scientist with expertise in Machine Learning, Deep Learning, and Embedded Systems. Currently pursuing Master's in Computer Science at University of Siegen.
+    // Set the download attribute to suggest a filename for the user
+    link.download = 'Prem_CV.pdf';
 
-Experience:
-- German Teacher (Part-time) - Versatile Academy (Mar 2024 – Sep 2024)
-- Data Analyst Intern - Twilearn (Oct 2023 – Jan 2024)
-- Data Science Intern - Acmegrade (Jun 2023 – Aug 2023)
+    // Append the link to the body (this is necessary for Firefox)
+    document.body.appendChild(link);
 
-Education:
-- Master of Science, Computer Science - University of Siegen (2024-2026)
-- Bachelor of Science, Computer Science - Savitribai Phule Pune University (2023)
-
-Skills:
-Python, SQL, C++, JavaScript, Machine Learning, Deep Learning, Data Analysis, TensorFlow, PyTorch, Power BI, Tableau
-
-Languages:
-Marathi & Hindi (Native), English (C1), German (B2)
-    `;
-    
-    const blob = new Blob([cvContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    
-    link.href = url;
+    // Programmatically click the link to trigger the download
     link.click();
-    
-    // Clean up
-    setTimeout(() => {
-        URL.revokeObjectURL(url);
-    }, 100);
-    
-    // Show feedback
-    alert('CV download started! In a real implementation, this would download your actual PDF resume.');
+
+    // Remove the link from the body
+    document.body.removeChild(link);
+
+    // Optional: Show feedback to the user
+    alert('Your CV download should begin shortly!');
 }
 
 // Utility function to add smooth reveal animations
